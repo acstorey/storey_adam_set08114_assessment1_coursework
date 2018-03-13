@@ -1,0 +1,228 @@
+<html>
+<head>
+<title>MainActivity.java</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.ln { color: #606366; font-weight: normal; font-style: normal; }
+.s0 { color: rgb(204,120,50); }
+.s1 { color: rgb(169,183,198); }
+.s2 { color: rgb(106,135,89); }
+</style>
+</head>
+<BODY BGCOLOR="#2b2b2b">
+<TABLE CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<TR><TD><CENTER>
+<FONT FACE="Arial, Helvetica" COLOR="#000000">
+MainActivity.java</FONT>
+</center></TD></TR></TABLE>
+<pre>
+<span class="s0">package </span><span class="s1">uk.ac.napier.adamstorey.calculator</span><span class="s0">;</span><span class="s1"> 
+ 
+ 
+ 
+ 
+        </span><span class="s0">import </span><span class="s1">android.support.v7.app.AppCompatActivity</span><span class="s0">;</span><span class="s1"> 
+        </span><span class="s0">import </span><span class="s1">android.os.Bundle</span><span class="s0">;</span><span class="s1"> 
+        </span><span class="s0">import </span><span class="s1">android.view.Menu</span><span class="s0">;</span><span class="s1"> 
+        </span><span class="s0">import </span><span class="s1">android.view.MenuItem</span><span class="s0">;</span><span class="s1"> 
+        </span><span class="s0">import </span><span class="s1">android.view.View</span><span class="s0">;</span><span class="s1"> 
+        </span><span class="s0">import </span><span class="s1">android.widget.Button</span><span class="s0">;</span><span class="s1"> 
+        </span><span class="s0">import </span><span class="s1">android.widget.EditText</span><span class="s0">;</span><span class="s1"> 
+ 
+</span><span class="s0">public class </span><span class="s1">MainActivity </span><span class="s0">extends </span><span class="s1">AppCompatActivity { 
+ 
+    Button button0 </span><span class="s0">, </span><span class="s1">button1 </span><span class="s0">, </span><span class="s1">button2 </span><span class="s0">, </span><span class="s1">button3 </span><span class="s0">, </span><span class="s1">button4 </span><span class="s0">, </span><span class="s1">button5 </span><span class="s0">, </span><span class="s1">button6 </span><span class="s0">,</span><span class="s1"> 
+            button7 </span><span class="s0">, </span><span class="s1">button8 </span><span class="s0">, </span><span class="s1">button9 </span><span class="s0">, </span><span class="s1">buttonAdd </span><span class="s0">, </span><span class="s1">buttonSub </span><span class="s0">, </span><span class="s1">buttonDivision </span><span class="s0">,</span><span class="s1"> 
+            buttonMul </span><span class="s0">, </span><span class="s1">button10 </span><span class="s0">, </span><span class="s1">buttonC </span><span class="s0">, </span><span class="s1">buttonEqual </span><span class="s0">;</span><span class="s1"> 
+ 
+    EditText edt1 </span><span class="s0">;</span><span class="s1"> 
+ 
+    </span><span class="s0">float </span><span class="s1">mValueOne </span><span class="s0">, </span><span class="s1">mValueTwo </span><span class="s0">;</span><span class="s1"> 
+ 
+    </span><span class="s0">boolean </span><span class="s1">mAddition </span><span class="s0">, </span><span class="s1">mSubtract </span><span class="s0">,</span><span class="s1">mMultiplication </span><span class="s0">,</span><span class="s1">mDivision </span><span class="s0">;</span><span class="s1"> 
+ 
+    @Override 
+    </span><span class="s0">protected void </span><span class="s1">onCreate(Bundle savedInstanceState) { 
+        </span><span class="s0">super</span><span class="s1">.onCreate(savedInstanceState)</span><span class="s0">;</span><span class="s1"> 
+        setContentView(R.layout.activity_main)</span><span class="s0">;</span><span class="s1"> 
+ 
+        button0 = (Button) findViewById(R.id.button0)</span><span class="s0">;</span><span class="s1"> 
+        button1 = (Button) findViewById(R.id.button1)</span><span class="s0">;</span><span class="s1"> 
+        button2 = (Button) findViewById(R.id.button2)</span><span class="s0">;</span><span class="s1"> 
+        button3 = (Button) findViewById(R.id.button3)</span><span class="s0">;</span><span class="s1"> 
+        button4 = (Button) findViewById(R.id.button4)</span><span class="s0">;</span><span class="s1"> 
+        button5 = (Button) findViewById(R.id.button5)</span><span class="s0">;</span><span class="s1"> 
+        button6 = (Button) findViewById(R.id.button6)</span><span class="s0">;</span><span class="s1"> 
+        button7 = (Button) findViewById(R.id.button7)</span><span class="s0">;</span><span class="s1"> 
+        button8 = (Button) findViewById(R.id.button8)</span><span class="s0">;</span><span class="s1"> 
+        button9 = (Button) findViewById(R.id.button9)</span><span class="s0">;</span><span class="s1"> 
+        button10 = (Button) findViewById(R.id.button10)</span><span class="s0">;</span><span class="s1"> 
+        buttonAdd = (Button) findViewById(R.id.buttonadd)</span><span class="s0">;</span><span class="s1"> 
+        buttonSub = (Button) findViewById(R.id.buttonsub)</span><span class="s0">;</span><span class="s1"> 
+        buttonMul = (Button) findViewById(R.id.buttonmul)</span><span class="s0">;</span><span class="s1"> 
+        buttonDivision = (Button) findViewById(R.id.buttondiv)</span><span class="s0">;</span><span class="s1"> 
+        buttonC = (Button) findViewById(R.id.buttonC)</span><span class="s0">;</span><span class="s1"> 
+        buttonEqual = (Button) findViewById(R.id.buttoneql)</span><span class="s0">;</span><span class="s1"> 
+        edt1 = (EditText) findViewById(R.id.edt1)</span><span class="s0">;</span><span class="s1"> 
+ 
+ 
+        button1.setOnClickListener(</span><span class="s0">new </span><span class="s1">View.OnClickListener() { 
+            @Override 
+            </span><span class="s0">public void </span><span class="s1">onClick(View v) { 
+                edt1.setText(edt1.getText()+</span><span class="s2">&quot;1&quot;</span><span class="s1">)</span><span class="s0">;</span><span class="s1"> 
+            } 
+        })</span><span class="s0">;</span><span class="s1"> 
+ 
+        button2.setOnClickListener(</span><span class="s0">new </span><span class="s1">View.OnClickListener() { 
+            @Override 
+            </span><span class="s0">public void </span><span class="s1">onClick(View v) { 
+                edt1.setText(edt1.getText()+</span><span class="s2">&quot;2&quot;</span><span class="s1">)</span><span class="s0">;</span><span class="s1"> 
+            } 
+        })</span><span class="s0">;</span><span class="s1"> 
+ 
+        button3.setOnClickListener(</span><span class="s0">new </span><span class="s1">View.OnClickListener() { 
+            @Override 
+            </span><span class="s0">public void </span><span class="s1">onClick(View v) { 
+                edt1.setText(edt1.getText()+</span><span class="s2">&quot;3&quot;</span><span class="s1">)</span><span class="s0">;</span><span class="s1"> 
+            } 
+        })</span><span class="s0">;</span><span class="s1"> 
+ 
+        button4.setOnClickListener(</span><span class="s0">new </span><span class="s1">View.OnClickListener() { 
+            @Override 
+            </span><span class="s0">public void </span><span class="s1">onClick(View v) { 
+                edt1.setText(edt1.getText()+</span><span class="s2">&quot;4&quot;</span><span class="s1">)</span><span class="s0">;</span><span class="s1"> 
+            } 
+        })</span><span class="s0">;</span><span class="s1"> 
+ 
+        button5.setOnClickListener(</span><span class="s0">new </span><span class="s1">View.OnClickListener() { 
+            @Override 
+            </span><span class="s0">public void </span><span class="s1">onClick(View v) { 
+                edt1.setText(edt1.getText()+</span><span class="s2">&quot;5&quot;</span><span class="s1">)</span><span class="s0">;</span><span class="s1"> 
+            } 
+        })</span><span class="s0">;</span><span class="s1"> 
+ 
+        button6.setOnClickListener(</span><span class="s0">new </span><span class="s1">View.OnClickListener() { 
+            @Override 
+            </span><span class="s0">public void </span><span class="s1">onClick(View v) { 
+                edt1.setText(edt1.getText()+</span><span class="s2">&quot;6&quot;</span><span class="s1">)</span><span class="s0">;</span><span class="s1"> 
+            } 
+        })</span><span class="s0">;</span><span class="s1"> 
+ 
+        button7.setOnClickListener(</span><span class="s0">new </span><span class="s1">View.OnClickListener() { 
+            @Override 
+            </span><span class="s0">public void </span><span class="s1">onClick(View v) { 
+                edt1.setText(edt1.getText()+</span><span class="s2">&quot;7&quot;</span><span class="s1">)</span><span class="s0">;</span><span class="s1"> 
+            } 
+        })</span><span class="s0">;</span><span class="s1"> 
+ 
+        button8.setOnClickListener(</span><span class="s0">new </span><span class="s1">View.OnClickListener() { 
+            @Override 
+            </span><span class="s0">public void </span><span class="s1">onClick(View v) { 
+                edt1.setText(edt1.getText()+</span><span class="s2">&quot;8&quot;</span><span class="s1">)</span><span class="s0">;</span><span class="s1"> 
+            } 
+        })</span><span class="s0">;</span><span class="s1"> 
+ 
+        button9.setOnClickListener(</span><span class="s0">new </span><span class="s1">View.OnClickListener() { 
+            @Override 
+            </span><span class="s0">public void </span><span class="s1">onClick(View v) { 
+                edt1.setText(edt1.getText()+</span><span class="s2">&quot;9&quot;</span><span class="s1">)</span><span class="s0">;</span><span class="s1"> 
+            } 
+        })</span><span class="s0">;</span><span class="s1"> 
+ 
+        button0.setOnClickListener(</span><span class="s0">new </span><span class="s1">View.OnClickListener() { 
+            @Override 
+            </span><span class="s0">public void </span><span class="s1">onClick(View v) { 
+                edt1.setText(edt1.getText()+</span><span class="s2">&quot;0&quot;</span><span class="s1">)</span><span class="s0">;</span><span class="s1"> 
+            } 
+        })</span><span class="s0">;</span><span class="s1"> 
+ 
+        buttonAdd.setOnClickListener(</span><span class="s0">new </span><span class="s1">View.OnClickListener() { 
+            @Override 
+            </span><span class="s0">public void </span><span class="s1">onClick(View v) { 
+ 
+                </span><span class="s0">if </span><span class="s1">(edt1 == </span><span class="s0">null</span><span class="s1">){ 
+                    edt1.setText(</span><span class="s2">&quot;&quot;</span><span class="s1">)</span><span class="s0">;</span><span class="s1"> 
+                }</span><span class="s0">else </span><span class="s1">{ 
+                    mValueOne = Float.parseFloat(edt1.getText() + </span><span class="s2">&quot;&quot;</span><span class="s1">)</span><span class="s0">;</span><span class="s1"> 
+                    mAddition = </span><span class="s0">true;</span><span class="s1"> 
+                    edt1.setText(</span><span class="s0">null</span><span class="s1">)</span><span class="s0">;</span><span class="s1"> 
+                } 
+            } 
+        })</span><span class="s0">;</span><span class="s1"> 
+ 
+        buttonSub.setOnClickListener(</span><span class="s0">new </span><span class="s1">View.OnClickListener() { 
+            @Override 
+            </span><span class="s0">public void </span><span class="s1">onClick(View v) { 
+                mValueOne = Float.parseFloat(edt1.getText() + </span><span class="s2">&quot;&quot;</span><span class="s1">)</span><span class="s0">;</span><span class="s1"> 
+                mSubtract = </span><span class="s0">true ;</span><span class="s1"> 
+                edt1.setText(</span><span class="s0">null</span><span class="s1">)</span><span class="s0">;</span><span class="s1"> 
+            } 
+        })</span><span class="s0">;</span><span class="s1"> 
+ 
+        buttonMul.setOnClickListener(</span><span class="s0">new </span><span class="s1">View.OnClickListener() { 
+            @Override 
+            </span><span class="s0">public void </span><span class="s1">onClick(View v) { 
+                mValueOne = Float.parseFloat(edt1.getText() + </span><span class="s2">&quot;&quot;</span><span class="s1">)</span><span class="s0">;</span><span class="s1"> 
+                mMultiplication = </span><span class="s0">true ;</span><span class="s1"> 
+                edt1.setText(</span><span class="s0">null</span><span class="s1">)</span><span class="s0">;</span><span class="s1"> 
+            } 
+        })</span><span class="s0">;</span><span class="s1"> 
+ 
+        buttonDivision.setOnClickListener(</span><span class="s0">new </span><span class="s1">View.OnClickListener() { 
+            @Override 
+            </span><span class="s0">public void </span><span class="s1">onClick(View v) { 
+                mValueOne = Float.parseFloat(edt1.getText()+</span><span class="s2">&quot;&quot;</span><span class="s1">)</span><span class="s0">;</span><span class="s1"> 
+                mDivision = </span><span class="s0">true ;</span><span class="s1"> 
+                edt1.setText(</span><span class="s0">null</span><span class="s1">)</span><span class="s0">;</span><span class="s1"> 
+            } 
+        })</span><span class="s0">;</span><span class="s1"> 
+ 
+        buttonEqual.setOnClickListener(</span><span class="s0">new </span><span class="s1">View.OnClickListener() { 
+            @Override 
+            </span><span class="s0">public void </span><span class="s1">onClick(View v) { 
+                mValueTwo = Float.parseFloat(edt1.getText() + </span><span class="s2">&quot;&quot;</span><span class="s1">)</span><span class="s0">;</span><span class="s1"> 
+ 
+                </span><span class="s0">if </span><span class="s1">(mAddition == </span><span class="s0">true</span><span class="s1">){ 
+ 
+                    edt1.setText(mValueOne + mValueTwo +</span><span class="s2">&quot;&quot;</span><span class="s1">)</span><span class="s0">;</span><span class="s1"> 
+                    mAddition=</span><span class="s0">false;</span><span class="s1"> 
+                } 
+ 
+ 
+                </span><span class="s0">if </span><span class="s1">(mSubtract == </span><span class="s0">true</span><span class="s1">){ 
+                    edt1.setText(mValueOne - mValueTwo+</span><span class="s2">&quot;&quot;</span><span class="s1">)</span><span class="s0">;</span><span class="s1"> 
+                    mSubtract=</span><span class="s0">false;</span><span class="s1"> 
+                } 
+ 
+                </span><span class="s0">if </span><span class="s1">(mMultiplication == </span><span class="s0">true</span><span class="s1">){ 
+                    edt1.setText(mValueOne * mValueTwo+</span><span class="s2">&quot;&quot;</span><span class="s1">)</span><span class="s0">;</span><span class="s1"> 
+                    mMultiplication=</span><span class="s0">false;</span><span class="s1"> 
+                } 
+ 
+                </span><span class="s0">if </span><span class="s1">(mDivision == </span><span class="s0">true</span><span class="s1">){ 
+                    edt1.setText(mValueOne / mValueTwo+</span><span class="s2">&quot;&quot;</span><span class="s1">)</span><span class="s0">;</span><span class="s1"> 
+                    mDivision=</span><span class="s0">false;</span><span class="s1"> 
+                } 
+            } 
+        })</span><span class="s0">;</span><span class="s1"> 
+ 
+        buttonC.setOnClickListener(</span><span class="s0">new </span><span class="s1">View.OnClickListener() { 
+            @Override 
+            </span><span class="s0">public void </span><span class="s1">onClick(View v) { 
+                edt1.setText(</span><span class="s2">&quot;&quot;</span><span class="s1">)</span><span class="s0">;</span><span class="s1"> 
+            } 
+        })</span><span class="s0">;</span><span class="s1"> 
+ 
+        button10.setOnClickListener(</span><span class="s0">new </span><span class="s1">View.OnClickListener() { 
+            @Override 
+            </span><span class="s0">public void </span><span class="s1">onClick(View v) { 
+                edt1.setText(edt1.getText()+</span><span class="s2">&quot;.&quot;</span><span class="s1">)</span><span class="s0">;</span><span class="s1"> 
+            } 
+        })</span><span class="s0">;</span><span class="s1"> 
+    } 
+ 
+ 
+ 
+}</span></pre>
+</body>
+</html>
